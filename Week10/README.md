@@ -106,8 +106,24 @@ public static void main(String[] args) {
 > 여러 개의 Thread가 한 개의 자원을 사용하고자 할 때,
 해당 Thread만 제외하고 나머지는 접근을 못하도록 막는 것
 
+특정 객체에 lock을 걸 때
+```java
+    synchronized(객체의 참조변수){
 
-[출처](https://link2me.tistory.com/1732)
+    }
+```
+synchronized의 block은 block의 시작부터 lockd이 걸렸다가 block이 끝나면 lock이 풀린다.
+
+- 메서드에 lock을 걸고자 할때
+`synchronized method의 경우에는 한 쓰레드가 synchronized 메서드를 호출해서 수행하고 있으면, 메소드가 종료될 때 까지 다른 쓰레드가 이 메서드를 호출할 수가 없다.
+
+```java
+    public synchronized void cal() {
+        
+    }
+```
+
+
 # 데드락
 두 개 이상의 Thread가 서로 상대방의 락을 얻기 위해 영원히 block상태로  대기하고 있는 상태이다.
 
